@@ -9,6 +9,6 @@ jobs:
         id: my-action
         uses: ./.github/actions/docker_action
         with:
-          who-to-greet: "@heorhi-deriv"
+          who-to-greet: '@heorhi-deriv'
       - name: Output the answer
         run: echo "The answer is ${{ steps.my-action.outputs.answer }}"
