@@ -1,4 +1,4 @@
-name: Self-Hosted
+name: Simple Workflow
 on: [workflow_dispatch]
 jobs:
   simple_job:
