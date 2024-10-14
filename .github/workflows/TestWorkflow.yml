@@ -2,7 +2,7 @@ name: "Test workflow"
 on: 
   push:
     branches:
-      - master
+      - bbbranch
   pull_request:
     types: [opened, synchronize, edited]   
 
