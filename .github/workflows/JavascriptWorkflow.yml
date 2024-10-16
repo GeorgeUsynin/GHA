@@ -1,0 +1,11 @@
+name: Javascript Workflow
+on:
+  push:
+    branches:
+      - new_branch
+jobs:
+  javascript_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        uses: './.github/actions/javascript'
