@@ -8,5 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install dependencies
+      - name: Install toolkit actions
+        run: |
+          npm install @actions/core
+          npm install @actions/github
+      - name: Run javascritp action
         uses: './.github/actions/javascript'
