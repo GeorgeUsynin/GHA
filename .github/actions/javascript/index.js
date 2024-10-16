@@ -1,4 +1,6 @@
+// Core functions for setting results, logging, registering secrets and exporting variables across actions
 const core = require('@actions/core');
+// Provides an Octokit client hydrated with the context that the current action is being run in.
 const github = require('@actions/github');
 
 try {
