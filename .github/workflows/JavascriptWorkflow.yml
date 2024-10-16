@@ -1,0 +1,19 @@
+name: Javascript Workflow
+on:
+  push:
+    branches:
+      - new_branch
+jobs:
+  javascript_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install toolkit actions
+        run: |
+          npm install @actions/core
+          npm install @actions/github
+      - name: Run javascritp action
+        id: hello
+        uses: './.github/actions/javascript'
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"

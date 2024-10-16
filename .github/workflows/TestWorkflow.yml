@@ -1,0 +1,27 @@
+name: 'Test workflow'
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, edited]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # - name: Install dependencies
+      #   uses: './.github/actions/install_deps_from_cache'
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ hashFiles('package-lock.json') }}
+      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        name: Install dependencies
+        run: npm install
+        shell: bash
+      - name: 'Run tests'
+        run: npm run test
